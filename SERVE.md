@@ -52,7 +52,7 @@ $ python -m fastchat.serve.controller --host 0.0.0.0
 
 Available arguments:
 - `--host`: Where to host the web server, default `0.0.0.0`.
-- `--port`: Which port to host the web server, default set to gradio's default port.
+- `--port`: Which port to host the web server, default set to gradio's default port `7860`.
 - `--controller-url`: The address of the controller (should be in full format, e.g. `http://<host>:<port>`), default `http://localhost:21001`.
 - `--model-list-mode`: Whether to load the model list once or reload the model list every time, default `once`.
 

@@ -1122,6 +1122,22 @@ class InternLMChatAdapter(BaseModelAdapter):
     def get_default_conv_template(self, model_path: str) -> Conversation:
         return get_conv_template("internlm-chat")
 
+class OrcaAdapter(BaseModelAdapter):
+    """The model adapter for psmathur/orca_mini_v2_7b"""
+
+    def match(self, model_path: str):
+        return "orca" in model_path
+
+    def load_model(self, model_path: str, from_pretrained_kwargs: dict):
+        model = LlamaForCausalLM.from_pretrained(
+                model_path, torch_dtype=torch.float16, device_map='auto',
+        )
+        tokenizer = LlamaTokenizer.from_pretrained(model_path)
+        return model, tokenizer
+
+    def get_default_conv_template(self, model_path: str) -> Conversation:
+        return get_conv_template("orca")
+
 
 # Note: the registration order matters.
 # The one registered earlier has a higher matching priority.
@@ -1165,6 +1181,7 @@ register_model_adapter(XGenAdapter)
 register_model_adapter(NousHermesAdapter)
 register_model_adapter(PythiaAdapter)
 register_model_adapter(InternLMChatAdapter)
+register_model_adapter(OrcaAdapter)
 
 # After all adapters, try the default base adapter.
 register_model_adapter(BaseModelAdapter)

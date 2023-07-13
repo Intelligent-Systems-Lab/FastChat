@@ -78,7 +78,7 @@ Available arguments:
 
 To serve (set `--host` to 0.0.0.0 if you want to serve FastChat distributedly):
 ```
-python fastchat.serve.model_worker --model-path lmsys/vicuna-13b-v1.3 --controller-address <controller_address> --host 0.0.0.0 --port <port> --worker-address http://<worker_address>:<worker_port> --num-gpus 2
+python -m fastchat.serve.model_worker --model-path lmsys/vicuna-13b-v1.3 --controller-address <controller_address> --host 0.0.0.0 --port <port> --worker-address http://<worker_address>:<worker_port> --num-gpus 2
 ```
 
 > :warning: Be careful with the port if you are serving more than 1 model in 1 server.  

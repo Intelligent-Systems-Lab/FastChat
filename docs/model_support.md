@@ -19,6 +19,7 @@
 - [openaccess-ai-collective/manticore-13b-chat-pyg](https://huggingface.co/openaccess-ai-collective/manticore-13b-chat-pyg)
 - [OpenAssistant/oasst-sft-4-pythia-12b-epoch-3.5](https://huggingface.co/OpenAssistant/oasst-sft-4-pythia-12b-epoch-3.5)
 - [project-baize/baize-v2-7b](https://huggingface.co/project-baize/baize-v2-7b)
+- [psmathur/orca_mini_v2_7b](https://huggingface.co/psmathur/orca_mini_v2_7b)
 - [Salesforce/codet5p-6b](https://huggingface.co/Salesforce/codet5p-6b)
 - [StabilityAI/stablelm-tuned-alpha-7b](https://huggingface.co/stabilityai/stablelm-tuned-alpha-7b)
 - [THUDM/chatglm-6b](https://huggingface.co/THUDM/chatglm-6b)

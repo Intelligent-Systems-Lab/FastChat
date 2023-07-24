@@ -62,8 +62,17 @@ python -m fastchat.serve.gradio_web_server --controller-url <controller_url> --m
 ```
 
 
-### Web Server (OpenAI API)
+### OpenAI API Server
 
+Available arguments:
+- `--host`: Where to host the api server, default `localhost`.
+- `--port`: Which port to host the api server, default `8000`.
+- `--controller-url`: The address of the controller (should be in full format, e.g. `http://<host>:<port>`), default `http://localhost:21001`.
+
+To serve:
+```
+python -m fastchat.serve.openai_api_server --host 0.0.0.0 --controller-address http://hc2.isl.lab.nycu.edu.tw:21001
+```
 
 
 ### Model Worker

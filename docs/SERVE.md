@@ -2,7 +2,7 @@
 
 ## FastChat Architecture
 
-![server arch](assets/server_arch.png)
+![server arch](../assets/server_arch.png)
 
 ## Start Serving
 

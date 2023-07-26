@@ -12,7 +12,17 @@ Check out to `dev` branch:
 git checkout dev
 ```
 
-Run the `docker-compose-dev.yml` in `docker/`:
+The image is stored in our own registry `ghcr.io/intelligent-systems-lab/fastchat`.
+If you wish to rebuild the image, run:
+```
+# Build the image
+docker build -t ghcr.io/intelligent-systems-lab/fastchat -f Dockerfile.dev .
+
+# Push the image
+docker push ghcr.io/intelligent-systems-lab/fastchat
+```
+
+To serve the controll plane, run `docker/docker-compose-dev.yml`:
 ```
 docker compose -f docker-compose-dev.yml up
 ```

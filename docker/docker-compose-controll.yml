@@ -3,9 +3,9 @@ version: "3.9"
 services:
   fastchat-controller:
     build:
-      context: ..
+      context: .
       dockerfile: Dockerfile.dev
-    # image: fastchat:latest
+    image: ghcr.io/intelligent-systems-lab/fastchat:latest
     ports:
       - "21001:21001"
     entrypoint: ["python3.9", "-m", "fastchat.serve.controller", "--host", "0.0.0.0", "--port", "21001"]
@@ -26,17 +26,18 @@ services:
   #   entrypoint: ["python3.9", "-m", "fastchat.serve.model_worker", "--model-names", "${FASTCHAT_WORKER_MODEL_NAMES:-vicuna-7b-v1.3}", "--model-path", "${FASTCHAT_WORKER_MODEL_PATH:-lmsys/vicuna-7b-v1.3}", "--worker-address", "http://fastchat-model-worker:21002", "--controller-address", "http://fastchat-controller:21001", "--host", "0.0.0.0", "--port", "21002"]
   fastchat-api-server:
     build:
-      context: ..
+      context: .
       dockerfile: Dockerfile.dev
-    # image: fastchat:latest
+    image: ghcr.io/intelligent-systems-lab/fastchat:latest
     ports:
       - "8000:8000"
     entrypoint: ["python3.9", "-m", "fastchat.serve.openai_api_server", "--controller-address", "http://fastchat-controller:21001", "--host", "0.0.0.0", "--port", "8000"]
 
   fastchat-web-server:
     build:
-      context: ..
+      context: .
       dockerfile: Dockerfile.dev
+    image: ghcr.io/intelligent-systems-lab/fastchat:latest
     ports:
       - "7860:7860"
     entrypoint: ["python3.9", "-m", "fastchat.serve.gradio_web_server_multi", "--controller-url", "http://fastchat-controller:21001", "--model-list-mode", "reload"]

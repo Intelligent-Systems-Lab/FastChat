@@ -43,7 +43,7 @@ docker push ghcr.io/intelligent-systems-lab/fastchat
 ```
 
 
-## Serving With Host OS
+## Serving in Host Environment
 
 There are essentially **3** components to start in order to serve models with FastChat, see the above system architecture for more details:
 - Controller

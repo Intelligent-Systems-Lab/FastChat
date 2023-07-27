@@ -12,7 +12,7 @@ Check out to `dev` branch:
 git checkout dev
 ```
 
-### Serving
+### Serving the controll plane
 
 Our `dev` image is hosted and stored in our own `ghcr` (GitHub container registry) at [`ghcr.io/intelligent-systems-lab/fastchat`](https://github.com/orgs/Intelligent-Systems-Lab/packages/container/package/fastchat).
 

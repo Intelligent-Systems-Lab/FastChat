@@ -12,7 +12,27 @@ Check out to `dev` branch:
 git checkout dev
 ```
 
-The image is stored in our own registry `ghcr.io/intelligent-systems-lab/fastchat`.
+### Serving
+
+Our `dev` image is hosted and stored in our own `ghcr` (GitHub container registry) at `ghcr.io/intelligent-systems-lab/fastchat`.
+
+To serve the `controll plane`, run `docker/docker-compose-controll.yml`:
+```
+# Pull the image
+docker pull ghcr.io/intelligent-systems-lab/fastchat
+
+# Run with docker compose
+docker compose -f docker-compose-controll.yml up
+```
+> :bulb: If bump denied to access this image, you need to login to ghcr.io by `docker login ghcr.io`.
+
+<!-- To serve the `model worker`, run:
+```
+docker run -d ghcr.io/intelligent-systems-lab/fastchat python3.9 -m fastchat.serve.model_worker --model-names
+``` -->
+
+### Developing
+
 If you wish to rebuild the image, run:
 ```
 # Build the image
@@ -20,11 +40,6 @@ docker build -t ghcr.io/intelligent-systems-lab/fastchat -f Dockerfile.dev .
 
 # Push the image
 docker push ghcr.io/intelligent-systems-lab/fastchat
-```
-
-To serve the controll plane, run `docker/docker-compose-dev.yml`:
-```
-docker compose -f docker-compose-dev.yml up
 ```
 
 

@@ -14,12 +14,12 @@ git checkout dev
 
 ### Serving
 
-Our `dev` image is hosted and stored in our own `ghcr` (GitHub container registry) at `ghcr.io/intelligent-systems-lab/fastchat`.
+Our `dev` image is hosted and stored in our own `ghcr` (GitHub container registry) at [`ghcr.io/intelligent-systems-lab/fastchat`](https://github.com/orgs/Intelligent-Systems-Lab/packages/container/package/fastchat).
 
 To serve the `controll plane`, run `docker/docker-compose-controll.yml`:
 ```
 # Pull the image
-docker pull ghcr.io/intelligent-systems-lab/fastchat
+docker pull ghcr.io/intelligent-systems-lab/fastchat:latest
 
 # Run with docker compose
 docker compose -f docker-compose-controll.yml up

@@ -1155,7 +1155,9 @@ class OrcaAdapter(BaseModelAdapter):
 
     def load_model(self, model_path: str, from_pretrained_kwargs: dict):
         model = LlamaForCausalLM.from_pretrained(
-                model_path, torch_dtype=torch.float16, device_map='auto',
+                model_path,
+                low_cpu_mem_usage = True,
+                **from_pretrained_kwargs
         )
         tokenizer = LlamaTokenizer.from_pretrained(model_path)
         return model, tokenizer

@@ -821,7 +821,7 @@ register_conv_template(
         roles=("### User", "### Response"),
         messages=(),
         offset=0,
-        sep_style=SeparatorStyle.ADD_COLON_TWO,
+        sep_style=SeparatorStyle.ADD_COLON_SINGLE,
         sep="\n\n",
     )
 )

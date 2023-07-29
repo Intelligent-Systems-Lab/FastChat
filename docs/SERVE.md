@@ -26,10 +26,12 @@ docker compose -f docker-compose-controll.yml up
 ```
 > :bulb: If bump denied to access this image, you need to login to ghcr.io by `docker login ghcr.io`.
 
-<!-- To serve the `model worker`, run:
+### Serving Model Workers
+
 ```shell
-docker run -d ghcr.io/intelligent-systems-lab/fastchat python3.9 -m fastchat.serve.model_worker --model-names
-``` -->
+docker run -d ghcr.io/intelligent-systems-lab/fastchat python3.9 -m fastchat.serve.model_worker --model-path lmsys/vicuna-13b-v1.3 --controller-address <controller_address> --host 0.0.0.0 --port <port> --worker-address http://<worker_address>:<worker_port> --num-gpus <num_gpus>
+```
+> :warning: NOTE: The worker_address must be a public address in order for the controller to communicate with it.
 
 ### Developing
 

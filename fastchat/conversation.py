@@ -813,6 +813,19 @@ register_conv_template(
     )
 )
 
+# Orca default template
+register_conv_template(
+    Conversation(
+        name="orca",
+        system="You are an AI assistant that follows instruction extremely well. Help as much as you can.",
+        roles=("### User", "### Response"),
+        messages=(),
+        offset=0,
+        sep_style=SeparatorStyle.ADD_COLON_SINGLE,
+        sep="\n\n",
+    )
+)
+
 # StarChat template
 register_conv_template(
     Conversation(

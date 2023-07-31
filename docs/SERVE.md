@@ -29,7 +29,7 @@ docker compose -f docker-compose-controll.yml up
 ### Serving Model Workers
 
 ```shell
-docker run -p 21002:21002 --gpus all ghcr.io/intelligent-systems-lab/fastchat python3.9 -m fastchat.serve.model_worker --model-path lmsys/vicuna-13b-v1.3 --controller-address http://hc2.isl.lab.nycu.edu.tw --host 0.0.0.0 --port 21002 --worker-address http://<worker_address>:21002 --num-gpus <num_gpus>
+docker run -p 21002:21002 --gpus all ghcr.io/intelligent-systems-lab/fastchat python3.9 -m fastchat.serve.model_worker --model-path lmsys/vicuna-13b-v1.3 --controller-address http://hc2.isl.lab.nycu.edu.tw:21001 --host 0.0.0.0 --port 21002 --worker-address http://<worker_address>:21002 --num-gpus <num_gpus>
 ```
 > :warning: NOTE: The worker_address must be a public address in order for the controller to communicate with it.
 

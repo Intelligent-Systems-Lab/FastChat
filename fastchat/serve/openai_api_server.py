@@ -269,7 +269,7 @@ def _add_to_set(s, new_stop):
 async def get_gen_params(
     model_name: str,
     worker_addr: str,
-    messages: Union[str, List[Dict[str, str]]],
+    messages: Union[str, List[Dict[str, Union[str, Dict[str, Union[str, Dict[str, str]]]]]]],
     *,
     temperature: float,
     top_p: float,
@@ -324,7 +324,13 @@ async def get_gen_params(
                 else:
                     conv.append_message(conv.roles[0], message["content"])
             elif msg_role == "assistant":
-                conv.append_message(conv.roles[1], message["content"])
+                if "function_call" in message:
+                    function_msg = f"function:{message["function_call"]["name"]}, arguments:{message["function_call"]["arguments"]}"
+                    conv.append_message(conv.roles[1], function_msg)
+                else:
+                    conv.append_message(conv.roles[1], message["content"])
+            elif msg_role == "function": # handle function call
+                conv.append_message(conv.roles[2], message["content"])
             else:
                 raise ValueError(f"Unknown role: {msg_role}")
 

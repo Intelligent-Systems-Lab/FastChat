@@ -61,6 +61,7 @@ class ChatCompletionRequest(BaseModel):
         str,
         List[Dict[str, str]],
         List[Dict[str, Union[str, List[Dict[str, Union[str, Dict[str, str]]]]]]],
+        List[Dict[str, Union[str, Dict[str, Union[str, Dict[str, str]]]]]],
     ]
     temperature: Optional[float] = 0.7
     top_p: Optional[float] = 1.0
